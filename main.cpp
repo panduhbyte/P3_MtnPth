@@ -6,19 +6,57 @@ using namespace std;
 /*
  * P3 Charles Valdez Mountain Path
  */
-void in_dat();
-int maxVal, minVal;
-int *arrData;
 
-int main() {
+// Prototype functions.
+void in_dat();
+void greed(int,int,int);
+
+// Global variables.
+int *arrData, maxVal, minVal, width, height, numSize;
+
+int main(){
     in_dat();
+
+    // Allocate 2D array.
+    int** row = new int*[height];
+    for(int k=0;k<width;k++){
+        row[k] = new int[width];
+    }
+
+    // Fill the 2D array.
+    int data = 2;
+    for(int i=0;i<height;i++){
+        for(int j=0;j<width;j++){
+            row[i][j] = arrData[data];
+            data++;
+        }
+    }
+
+    // Print 2D array.
+    for(int i=0;i<height;i++){
+        for(int j=0;j<width;j++){
+            cout<<row[i][j] <<" ";
+        }
+        cout<<endl;
+    }
+    cout<<endl;
+
+
+
+
+    // Deallocate 2D Array
+    for(int i=0;i<height;i++){
+        delete [] row[i];
+    }
+    delete [] row;
+
     return 0;
 }
 
 void in_dat(){
     // ### Takes in file as string vector then convert to integer. ###
     ifstream infile;
-    infile.open("colorado1.dat");
+    infile.open("test2.dat");
     vector<string> numStr;
     vector<int> numVec;
 
@@ -30,7 +68,7 @@ void in_dat(){
     infile.close();
     infile.clear();
 
-    int numSize = numStr.size();
+    numSize = numStr.size();
     for(int a=0; a < numSize; a++){
         int n = atoi(numStr.at(a).c_str());
         numVec.push_back(n);
@@ -49,4 +87,12 @@ void in_dat(){
     maxVal = high;
     minVal = low;
     arrData = numInt;
+    width = arrData[0];
+    height = arrData[1];
+    delete [] numInt;
+}
+
+
+void greed(int now1, int now2, int now3){
+    int 
 }
