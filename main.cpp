@@ -4,12 +4,11 @@
 
 using namespace std;
 /*
- * P3 Charles Valdez Mountain Path
+ * P3 Charles Valdez Mountain Path using
  */
 
 // Prototype functions.
 void in_dat();
-void greed(int,int,int);
 
 // Global variables.
 int *arrData, maxVal, minVal, width, height, numSize;
@@ -41,9 +40,16 @@ int main(){
     }
     cout<<endl;
 
+    //##### Greedy algorithm and ppm creation.
+    ofstream img;
+    img.open("pic1.ppm");
+    img << "P3\n" << width << " " << height << endl;
+    img <<  maxVal << endl;
+    int  up1, up2, up3, mid1, mid2, mid3, dn1, dn2, dn3, now1, now2, now3;
 
 
-
+    img.close();
+    img.clear();
     // Deallocate 2D Array
     for(int i=0;i<height;i++){
         delete [] row[i];
@@ -90,9 +96,4 @@ void in_dat(){
     width = arrData[0];
     height = arrData[1];
     delete [] numInt;
-}
-
-
-void greed(int now1, int now2, int now3){
-    int 
 }
