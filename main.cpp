@@ -44,7 +44,7 @@ int main(){
     cout<<temp1<<endl;
 
 
-    /*
+
     //##### Greedy algorithm
     int  up1, up2, up3, mid1, mid2, mid3, dn1, dn2, dn3;
     int now1, now2, now3, in1, in2, in3;
@@ -54,40 +54,29 @@ int main(){
     cin>>in2;
     cout<<"Enter starting point 3.\n";
     cin>>in3;
-
     for(int nowCol=0; nowCol<width; nowCol++){
         up1 = row[in1-1][nowCol+1];
         up2 = row[in2-1][nowCol+1];
         up3 = row[in3-1][nowCol+1];
-
         mid1 = row[in1][nowCol+1];
         mid2 = row[in2][nowCol+1];
         mid3 = row[in3][nowCol+1];
-
         dn1 = row[in1+1][nowCol+1];
         dn2 = row[in2+1][nowCol+1];
         dn3 = row[in3+1][nowCol+1];
-
         if(in1>0 && up1<=mid1 && up1<=dn1){in1=up1;}
         else if(in1<height && dn1<=mid1 && dn1<=up1){in1=dn1;}
         else{in1=mid1;}
         row[in1][nowCol]=maxVal;
-
         if(in2>0 && up2<=mid2 && up2<=dn1){in2=up2;}
         else if(in2<height && dn2<=mid2 && dn2<=up2){in2=dn2;}
         else{in2=mid2;}
         row[in2][nowCol]=maxVal;
-
         if(in3>0 && up3<=mid3 && up3<=dn3){in3=up3;}
         else if(in3<height && dn3<=mid3 && dn3<=up3){in3=dn3;}
         else{in3=mid3;}
         row[in3][nowCol]=maxVal;
-
     }
-
-
-
-
     // ppm creation.
     ofstream img;
     img.open("pic1.ppm");
@@ -102,7 +91,7 @@ int main(){
     }
     img.close();
     img.clear();
-*/
+
     // Deallocate 2D Array
     for(int i=0;i<height;i++){
         delete [] row[i];
